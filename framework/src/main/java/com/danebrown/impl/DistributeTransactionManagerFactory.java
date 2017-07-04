@@ -14,17 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.danebrown.def;
+package com.danebrown.impl;
+
+import com.danebrown.inf.IDistributedTransactionBuilder;
+import com.danebrown.inf.IDistributedTransactionManager;
 
 /**
- * Created by dane on 2017/7/1.
+ * Created by dane on 2017/7/3.
  */
-public class Define {
-    public static final String EMPTY = "";
-    public static final String NULL_STRING = null;
+public class DistributeTransactionManagerFactory {
+    private static IDistributedTransactionManager innerinstance;
 
-    public void test() {
-
+    public static IDistributedTransactionManager newInstance() {
+        if (innerinstance == null) {
+            innerinstance = new DefaultDistributeTransactionManager();
+        }
+        return innerinstance;
     }
 
+    public static IDistributedTransactionBuilder builder() {
+        return new DefaultDistributedTransactionBuilder();
+    }
 }

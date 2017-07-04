@@ -16,6 +16,8 @@
  */
 package com.danebrown.inf;
 
+import com.danebrown.entity.TransactionKey;
+
 /**
  * Created by dane on 2017/7/3.
  */
@@ -24,5 +26,7 @@ public interface IDistributedTransaction {
      * get current transaction key
      * @return
      */
-    String getCurrentTransKey();
+    TransactionKey getCurrentTransKey();
+
+
 }

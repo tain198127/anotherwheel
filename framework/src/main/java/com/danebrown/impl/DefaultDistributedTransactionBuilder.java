@@ -25,18 +25,28 @@ import java.util.concurrent.TimeUnit;
  * Created by dane on 2017/7/4.
  */
 public class DefaultDistributedTransactionBuilder implements IDistributedTransactionBuilder {
+
+    private String connectStr;
+    private long retryPeriod;
+    private TimeUnit timeUnit;
+    private int retryTimes;
     @Override
     public IDistributedTransactionBuilder connecgString(String connectStr) {
-        return null;
+        this.connectStr = connectStr;
+        return this;
     }
 
     @Override
     public IDistributedTransactionBuilder retryPolicy(long retryPeriod, TimeUnit timeunit, int retryTimes) {
-        return null;
+        this.retryPeriod = retryPeriod;
+        this.timeUnit = timeunit;
+        this.retryTimes = retryTimes;
+        return this;
     }
 
     @Override
     public IDistributedTransaction build() {
-        return null;
+        DefaultDistributedTransaction transaction = new DefaultDistributedTransaction();
+        return transaction;
     }
 }
