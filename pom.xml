@@ -13,6 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <curator.version>2.9.1</curator.version>
   </properties>
 
   <dependencyManagement>
@@ -43,16 +44,19 @@
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
       <scope>runtime</scope>
+      <version>2.5</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <scope>runtime</scope>
+      <version>2.5</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-slf4j-impl</artifactId>
       <scope>runtime</scope>
+      <version>2.5</version>
     </dependency>
 
     <!-- testing -->
@@ -60,6 +64,42 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test-spring</artifactId>
       <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
+    <dependency>
+      <groupId>org.apache.zookeeper</groupId>
+      <artifactId>zookeeper</artifactId>
+      <version>3.4.10</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+      <version>${curator.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-recipes</artifactId>
+      <version>${curator.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-client -->
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-client</artifactId>
+      <version>${curator.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.curator/apache-curator -->
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>apache-curator</artifactId>
+      <version>${curator.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.9.9</version>
     </dependency>
 
   </dependencies>
