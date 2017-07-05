@@ -16,31 +16,9 @@
  */
 package com.danebrown.inf;
 
-import com.danebrown.entity.TransactionKey;
-
 /**
- * Created by dane on 2017/7/3.
+ * Created by dane on 2017/7/5.
  */
-public interface IDistributedTransaction {
-    /**
-     * get current transaction key
-     * @return
-     */
-    TransactionKey getCurrentTransKey();
-
-    /**
-     * step 1 per commit
-     * @param trans
-     * @param callback
-     */
-    void beginTransaction(IBeginTransaction trans,ITransCallback callback);
-
-    /**
-     * end transaction
-     * @param trans
-     * @param callback
-     */
-    void endTransaction(IEndTransaction trans,ITransCallback callback);
-
-
+public interface IEndTransaction {
+    void finish();
 }

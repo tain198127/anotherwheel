@@ -16,31 +16,15 @@
  */
 package com.danebrown.inf;
 
-import com.danebrown.entity.TransactionKey;
+import com.danebrown.annotation.DistributedTransactionStatus;
+import com.danebrown.entity.DistributedTransactionContext;
+import com.danebrown.exception.DistributedTransactionException;
 
 /**
- * Created by dane on 2017/7/3.
+ * Created by dane on 2017/7/5.
  */
-public interface IDistributedTransaction {
-    /**
-     * get current transaction key
-     * @return
-     */
-    TransactionKey getCurrentTransKey();
-
-    /**
-     * step 1 per commit
-     * @param trans
-     * @param callback
-     */
-    void beginTransaction(IBeginTransaction trans,ITransCallback callback);
-
-    /**
-     * end transaction
-     * @param trans
-     * @param callback
-     */
-    void endTransaction(IEndTransaction trans,ITransCallback callback);
-
-
+public interface ITransCallback {
+    void onSucceed(DistributedTransactionStatus status, DistributedTransactionContext context);
+    void onTimeOut(DistributedTransactionStatus status, DistributedTransactionContext context);
+    void onException(DistributedTransactionStatus status, DistributedTransactionContext context, DistributedTransactionException exception);
 }

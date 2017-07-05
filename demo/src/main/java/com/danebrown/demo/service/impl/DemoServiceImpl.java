@@ -14,33 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.danebrown.inf;
+package com.danebrown.demo.service.impl;
 
-import com.danebrown.entity.TransactionKey;
+import com.danebrown.demo.service.inf.IDemoService;
 
 /**
- * Created by dane on 2017/7/3.
+ * Created by dane on 2017/7/5.
  */
-public interface IDistributedTransaction {
-    /**
-     * get current transaction key
-     * @return
-     */
-    TransactionKey getCurrentTransKey();
-
-    /**
-     * step 1 per commit
-     * @param trans
-     * @param callback
-     */
-    void beginTransaction(IBeginTransaction trans,ITransCallback callback);
-
-    /**
-     * end transaction
-     * @param trans
-     * @param callback
-     */
-    void endTransaction(IEndTransaction trans,ITransCallback callback);
-
-
+public class DemoServiceImpl implements IDemoService {
+    @Override
+    public String sayHello(String name) {
+        return null;
+    }
 }

@@ -14,33 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.danebrown.inf;
-
-import com.danebrown.entity.TransactionKey;
+package com.danebrown.annotation;
 
 /**
- * Created by dane on 2017/7/3.
+ * Created by dane on 2017/7/5.
  */
-public interface IDistributedTransaction {
-    /**
-     * get current transaction key
-     * @return
-     */
-    TransactionKey getCurrentTransKey();
-
-    /**
-     * step 1 per commit
-     * @param trans
-     * @param callback
-     */
-    void beginTransaction(IBeginTransaction trans,ITransCallback callback);
-
-    /**
-     * end transaction
-     * @param trans
-     * @param callback
-     */
-    void endTransaction(IEndTransaction trans,ITransCallback callback);
-
-
+public enum DistributedTransactionStatus {
+    SUCCEED,
+    FAIL,
+    TIMEOUT,
+    HALFWAY
 }
