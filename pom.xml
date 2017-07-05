@@ -6,40 +6,80 @@
 
     <groupId>com.danebrown</groupId>
     <artifactId>anotherwheel</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>0.0.1</version>
 
-    <name>A Camel Spring Route</name>
+    <name>another wheel parent</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <curator.version>2.9.1</curator.version>
         <loger.version>2.5</loger.version>
+        <spring.version>4.3.9.RELEASE</spring.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- Camel BOM -->
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-parent</artifactId>
-                <version>2.19.1</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-core</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--aspectj -->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.10</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.10</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.8.10</version>
+        </dependency>
+
 
         <!--dubbo -->
         <dependency>
@@ -136,13 +176,12 @@
                 </configuration>
             </plugin>
 
-            <!-- allows the route to be ran via 'mvn camel:run' -->
-            <plugin>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-maven-plugin</artifactId>
-                <version>2.19.1</version>
-            </plugin>
+
         </plugins>
     </build>
 
+    <modules>
+        <module>framework</module>
+        <module>demo</module>
+    </modules>
 </project>
